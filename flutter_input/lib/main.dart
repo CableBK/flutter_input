@@ -10,7 +10,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ลงทะเบียน',
-      home: HomeScreen(),
+      home: FormScreen(),
     );
   }
 }

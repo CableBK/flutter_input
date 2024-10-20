@@ -12,6 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var gender = '';
   var newsletter = false;
   var driver = false;
+  var sum = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
+              buildTextField(),
               SizedBox(height: 25),
               ElevatedButton(
                   onPressed: () {
@@ -39,4 +41,33 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget buildTextField() => Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(labelText: 'ราคาสินค้า'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: nameController,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+        ],
+      );
 }

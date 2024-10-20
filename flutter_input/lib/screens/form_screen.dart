@@ -95,18 +95,6 @@ class _FormScreenState extends State<FormScreen> {
             keyboardType: TextInputType.name,
             controller: surnameController,
           ),
-          TextField(
-            decoration: InputDecoration(labelText: 'นามสกุล'),
-            maxLength: 50,
-            keyboardType: TextInputType.name,
-            controller: surnameController,
-          ),
-          TextField(
-            decoration: InputDecoration(labelText: 'นามสกุล'),
-            maxLength: 50,
-            keyboardType: TextInputType.name,
-            controller: surnameController,
-          ),
         ],
       );
 }
