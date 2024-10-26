@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class FormScreen extends StatefulWidget {
+  const FormScreen({super.key});
+
   @override
   State<FormScreen> createState() => _FormScreenState();
 }
@@ -18,16 +20,16 @@ class _FormScreenState extends State<FormScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black26,
-        title: Text('ลงทะเบียน'),
+        title: const Text('ลงทะเบียน'),
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               buildTextField(),
               buildRadio(),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               buildCheckbox(),
               ElevatedButton(
                   onPressed: () {
@@ -35,7 +37,7 @@ class _FormScreenState extends State<FormScreen> {
                         'Name = ${nameController.text} ${surnameController.text}');
                     print('Gender : $gender');
                   },
-                  child: Text('บันทึก'))
+                  child: const Text('บันทึก'))
             ],
           ),
         ),
@@ -46,12 +48,12 @@ class _FormScreenState extends State<FormScreen> {
   Widget buildCheckbox() => Column(
         children: [
           CheckboxListTile(
-            title: Text('สมัครรับจดหมายข่าว'),
+            title: const Text('สมัครรับจดหมายข่าว'),
             value: newsletter,
             onChanged: null,
           ),
           CheckboxListTile(
-            title: Text('ใบขับขี่รถยนต์'),
+            title: const Text('ใบขับขี่รถยนต์'),
             value: driver,
             onChanged: null,
           ),
@@ -62,14 +64,14 @@ class _FormScreenState extends State<FormScreen> {
         children: [
           RadioListTile(
             tileColor: Colors.blue,
-            title: Text('ชาย'),
+            title: const Text('ชาย'),
             value: 'male',
             groupValue: gender,
             onChanged: (value) => setState(() => gender = value.toString()),
           ),
           RadioListTile(
             tileColor: Colors.red,
-            title: Text('หญิง'),
+            title: const Text('หญิง'),
             value: 'female',
             groupValue: gender, //ได้แล้ว ใส่ gender เป็น สตริง เฉยย
             onChanged: (value) {
@@ -84,13 +86,13 @@ class _FormScreenState extends State<FormScreen> {
   Widget buildTextField() => Column(
         children: [
           TextField(
-            decoration: InputDecoration(labelText: 'ชื่อ'),
+            decoration: const InputDecoration(labelText: 'ชื่อ'),
             maxLength: 50,
             keyboardType: TextInputType.name,
             controller: nameController,
           ),
           TextField(
-            decoration: InputDecoration(labelText: 'นามสกุล'),
+            decoration: const InputDecoration(labelText: 'นามสกุล'),
             maxLength: 50,
             keyboardType: TextInputType.name,
             controller: surnameController,
