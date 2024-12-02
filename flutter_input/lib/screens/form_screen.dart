@@ -31,6 +31,7 @@ class _FormScreenState extends State<FormScreen> {
               buildRadio(),
               const SizedBox(height: 25),
               buildCheckbox(),
+              buildSwitch(),
               ElevatedButton(
                   onPressed: () {
                     print(
@@ -46,6 +47,13 @@ class _FormScreenState extends State<FormScreen> {
       ),
     );
   }
+
+  Column buildSwitch() => Column(
+        children: [
+          SwitchListTile(title: Text('แต่งงาน'), value: false, onChanged: null),
+          SwitchListTile(title: Text('มีบุตร'), value: false, onChanged: null),
+        ],
+      );
 
   Widget buildCheckbox() => Column(
         children: [
