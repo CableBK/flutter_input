@@ -36,6 +36,8 @@ class _FormScreenState extends State<FormScreen> {
                     print(
                         'Name = ${nameController.text} ${surnameController.text}');
                     print('Gender : $gender');
+                    print('newsletter = $newsletter');
+                    print('driver = $driver');
                   },
                   child: const Text('บันทึก'))
             ],
@@ -50,12 +52,12 @@ class _FormScreenState extends State<FormScreen> {
           CheckboxListTile(
             title: const Text('สมัครรับจดหมายข่าว'),
             value: newsletter,
-            onChanged: null,
+            onChanged: (value) => setState(() => newsletter = value ?? false),
           ),
           CheckboxListTile(
             title: const Text('ใบขับขี่รถยนต์'),
             value: driver,
-            onChanged: null,
+            onChanged: (value) => setState(() => driver = value ?? false),
           ),
         ],
       );
