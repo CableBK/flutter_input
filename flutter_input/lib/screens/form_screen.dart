@@ -16,6 +16,7 @@ class _FormScreenState extends State<FormScreen> {
   var driver = false;
   var mary = false;
   var child = false;
+  var age = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +35,17 @@ class _FormScreenState extends State<FormScreen> {
               const SizedBox(height: 25),
               buildCheckbox(),
               buildSwitch(),
+              buildSlider(),
               ElevatedButton(
                   onPressed: () {
                     print(
                         'Name = ${nameController.text} ${surnameController.text}');
                     print('Gender : $gender');
-                    print('newsletter = $newsletter');
-                    print('driver = $driver');
-                    print('mary = $mary');
-                    print('child = $child');
+                    print('Newsletter = $newsletter');
+                    print('Driver = $driver');
+                    print('Mary = $mary');
+                    print('Child = $child');
+                    print('Age = $age');
                   },
                   child: const Text('บันทึก'))
             ],
@@ -51,6 +54,13 @@ class _FormScreenState extends State<FormScreen> {
       ),
     );
   }
+
+  Widget buildSlider() => Slider(
+      value: age,
+      min: 0.0,
+      max: 100.0,
+      label: age.toInt().toString(),
+      onChanged: (value) => setState(() => age = value));
 
   Column buildSwitch() => Column(
         children: [
