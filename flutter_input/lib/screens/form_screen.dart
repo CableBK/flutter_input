@@ -14,6 +14,8 @@ class _FormScreenState extends State<FormScreen> {
   var gender = '';
   var newsletter = false;
   var driver = false;
+  var mary = false;
+  var child = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,8 @@ class _FormScreenState extends State<FormScreen> {
                     print('Gender : $gender');
                     print('newsletter = $newsletter');
                     print('driver = $driver');
+                    print('mary = $mary');
+                    print('child = $child');
                   },
                   child: const Text('บันทึก'))
             ],
@@ -50,8 +54,16 @@ class _FormScreenState extends State<FormScreen> {
 
   Column buildSwitch() => Column(
         children: [
-          SwitchListTile(title: Text('แต่งงาน'), value: false, onChanged: null),
-          SwitchListTile(title: Text('มีบุตร'), value: false, onChanged: null),
+          SwitchListTile(
+            title: Text('แต่งงาน'),
+            value: mary,
+            onChanged: (value) => setState(() => mary = value),
+          ),
+          SwitchListTile(
+            title: Text('มีบุตร'),
+            value: child,
+            onChanged: (value) => setState(() => child = value),
+          ),
         ],
       );
 
