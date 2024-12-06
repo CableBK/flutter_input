@@ -63,6 +63,7 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   Widget buildDropdown() => DropdownButton(
+        onChanged: (value) => setState(() => channel = value ?? 'Cable'),
         value: channel,
         items: channels,
       );
