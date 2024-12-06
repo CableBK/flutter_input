@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -17,6 +19,10 @@ class _FormScreenState extends State<FormScreen> {
   var mary = false;
   var child = false;
   var age = 0.0;
+  final channels = ['Cable', 'facebook', 'instagram', 'Line']
+      .map((e) => DropdownMenuItem(child: Text(e), value: e))
+      .toList();
+  var channel = 'Cable';
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +42,7 @@ class _FormScreenState extends State<FormScreen> {
               buildCheckbox(),
               buildSwitch(),
               buildSlider(),
+              buildDropdown(),
               ElevatedButton(
                   onPressed: () {
                     print(
@@ -54,6 +61,11 @@ class _FormScreenState extends State<FormScreen> {
       ),
     );
   }
+
+  Widget buildDropdown() => DropdownButton(
+        value: channel,
+        items: channels,
+      );
 
   Widget buildSlider() => Slider(
       value: age,
