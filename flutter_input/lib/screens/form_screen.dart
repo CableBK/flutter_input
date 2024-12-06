@@ -53,6 +53,7 @@ class _FormScreenState extends State<FormScreen> {
                     print('Mary = $mary');
                     print('Child = $child');
                     print('Age = $age');
+                    print('Social = $channel');
                   },
                   child: const Text('บันทึก'))
             ],
@@ -63,7 +64,7 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   Widget buildDropdown() => DropdownButton(
-        onChanged: (value) => setState(() => channel = value ?? 'Cable'),
+        onChanged: (value) => setState(() => channel = value.toString()),
         value: channel,
         items: channels,
       );
