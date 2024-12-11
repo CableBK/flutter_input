@@ -48,6 +48,7 @@ class _FormScreenState extends State<FormScreen> {
               buildForm(),
               ElevatedButton(
                   onPressed: () {
+                    if (!(key.currentState?.validate() ?? false)) return;
                     key.currentState?.save();
                     print(
                         'Name = ${nameController.text} ${surnameController.text}');
@@ -58,7 +59,7 @@ class _FormScreenState extends State<FormScreen> {
                     print('Child = $child');
                     print('Age = $age');
                     print('Social = $channel');
-                    print('Email = $email')
+                    print('Email = $email');
                   },
                   child: const Text('บันทึก'))
             ],
@@ -77,8 +78,10 @@ class _FormScreenState extends State<FormScreen> {
               maxLength: 50,
               keyboardType: TextInputType.emailAddress,
               onSaved: (value) => email = value ?? '',
-              validator: (value) {value ??= '';
-              if (value.isEmpty) return 'กรุณากรอกอีเมล'; },
+              validator: (value) {
+                value ??= '';
+                if (value.isEmpty) return 'กรุณากรอกอีเมล';
+              },
             )
           ],
         ),
