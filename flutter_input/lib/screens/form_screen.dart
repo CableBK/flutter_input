@@ -23,6 +23,8 @@ class _FormScreenState extends State<FormScreen> {
       .map((e) => DropdownMenuItem(child: Text(e), value: e))
       .toList();
   var channel = 'Cable';
+  var email = '';
+  final key = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class _FormScreenState extends State<FormScreen> {
               buildForm(),
               ElevatedButton(
                   onPressed: () {
+                    key.currentState?.save();
                     print(
                         'Name = ${nameController.text} ${surnameController.text}');
                     print('Gender : $gender');
@@ -55,6 +58,7 @@ class _FormScreenState extends State<FormScreen> {
                     print('Child = $child');
                     print('Age = $age');
                     print('Social = $channel');
+                    print('Email = $email')
                   },
                   child: const Text('บันทึก'))
             ],
@@ -65,13 +69,16 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   Widget buildForm() => Form(
+        key: key,
         child: Column(
           children: [
             TextFormField(
               decoration: InputDecoration(labelText: 'อีเมล'),
               maxLength: 50,
               keyboardType: TextInputType.emailAddress,
-              onSaved: null,
+              onSaved: (value) => email = value ?? '',
+              validator: (value) {value ??= '';
+              if (value.isEmpty) return 'กรุณากรอกอีเมล'; },
             )
           ],
         ),
