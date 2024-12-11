@@ -43,6 +43,7 @@ class _FormScreenState extends State<FormScreen> {
               buildSwitch(),
               buildSlider(),
               buildDropdown(),
+              buildForm(),
               ElevatedButton(
                   onPressed: () {
                     print(
@@ -62,6 +63,19 @@ class _FormScreenState extends State<FormScreen> {
       ),
     );
   }
+
+  Widget buildForm() => Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: InputDecoration(labelText: 'อีเมล'),
+              maxLength: 50,
+              keyboardType: TextInputType.emailAddress,
+              onSaved: null,
+            )
+          ],
+        ),
+      );
 
   Widget buildDropdown() => DropdownButton(
         onChanged: (value) => setState(() => channel = value.toString()),
