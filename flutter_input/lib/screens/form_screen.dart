@@ -81,6 +81,8 @@ class _FormScreenState extends State<FormScreen> {
               validator: (value) {
                 value ??= '';
                 if (value.isEmpty) return 'กรุณากรอกอีเมล';
+                if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                    .hasMatch(value)) return 'อีเมลไม่ถูกต้อง';
               },
             )
           ],
