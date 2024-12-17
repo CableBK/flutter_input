@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_input/widgets/checkbox_form_field.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -25,6 +26,7 @@ class _FormScreenState extends State<FormScreen> {
   var channel = 'Cable';
   var email = '';
   final key = GlobalKey<FormState>();
+  var agreement = false;
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +85,15 @@ class _FormScreenState extends State<FormScreen> {
                 if (value.isEmpty) return 'กรุณากรอกอีเมล';
                 if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                     .hasMatch(value)) return 'อีเมลไม่ถูกต้อง';
+              },
+            ),
+            CheckboxFormField(
+              title: Text('ยอมรับข้อตกลงการใช้งาน'),
+              initialValue: agreement,
+              onSaved: (value) => agreement = value ?? false,
+              validator: (value) {
+                value ??= false;
+                if (!value) return 'กรุณายอมรับข้อตกลงการใช้งาน';
               },
             )
           ],
